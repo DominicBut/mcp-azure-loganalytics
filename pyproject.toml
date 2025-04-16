@@ -1,0 +1,59 @@
+[project]
+name = "mcp-azure-loganalytics"
+dynamic = ["version"]
+description = "A Model Context Protocol (MCP) server that provides product search, price history tracking, and specification search capabilities."
+readme = "README.md"
+authors = [
+    { name = "Dominic", email = "dominic@dominicbut.com" }
+]
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp>=3.11.11",
+    "async-lru>=2.0.4",
+    "async-timeout>=5.0.1",
+    "elasticsearch8[async]>=8.17.1",
+    "mcp[cli]>=1.2.1",
+    "typing-extensions>=4.12.2",
+]
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13"
+]
+
+[project.urls]
+Source = "https://github.com/DominicBut/mcp-azure-loganalytics"
+
+[project.scripts]
+BigGo-MCP-Server = "mcp-azure-loganalytics:main"
+BigGo-MCP-Server-Alive-Checker = "mcp-azure-loganalytics.lib.alive_checker:main"
+
+[project.gui-scripts]
+BigGo-MCP-Server = "mcp-azure-loganalytics:main"
+BigGo-MCP-Server-Alive-Checker = "mcp-azure-loganalytics.lib.alive_checker:main"
+
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "semver"
+
+[dependency-groups]
+test = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.3",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff.lint.per-file-ignores]
+"test/**/*" = ["F403", "F405"]
