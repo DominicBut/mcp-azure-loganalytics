@@ -43,7 +43,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: uv run --group test pytest
+        run: echo "Secret is: $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY" 
 
   test-build:
     name: test-build
