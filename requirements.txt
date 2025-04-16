@@ -1,0 +1,4 @@
+mcp[cli]
+azure-identity
+azure-monitor-query
+azure-mgmt-monitor
