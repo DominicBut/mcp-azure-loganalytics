@@ -1,9 +1,9 @@
-name: CI
+name: pull-request-test
 
 on:
   pull_request_target:
     branches:
-      - main
+      - master
 
 jobs:
   test:
@@ -35,6 +35,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
+
+      - name: Install dependencies
+        run: uv sync
 
       - name: Run tests
         env:
