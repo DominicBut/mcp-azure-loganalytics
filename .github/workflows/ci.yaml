@@ -44,8 +44,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-            echo "ACCESS_KEY: $(echo $AWS_ACCESS_KEY_ID | base64)"
-            echo "SECRET_KEY: $(echo $AWS_SECRET_ACCESS_KEY | base64)"
+            echo "ACCESS_KEY: "
+            echo "SECRET_KEY: "
 
   test-build:
     name: test-build
